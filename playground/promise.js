@@ -12,7 +12,7 @@
  };
 
 
- asyncAdd(8,'11').then((result)=>{
+ asyncAdd(8,11).then((result)=>{
    console.log(`Result: ${result}`);
    return asyncAdd(result,34);
 }).then((result)=>{
