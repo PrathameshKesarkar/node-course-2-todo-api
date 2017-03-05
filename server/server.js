@@ -27,3 +27,5 @@ app.post('/todos',(req,res)=>{
 app.listen(3000,()=>{
   console.log('App is Started');
 })
+
+module.exports ={app};
