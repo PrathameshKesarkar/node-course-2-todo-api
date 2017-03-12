@@ -41,6 +41,23 @@ app.get('/todos/:id',(req,res)=>{
 
 });
 
+app.delete('/todos/:id',(req,res)=>{
+  const {id} =req.params;
+  if(!ObjectID.isValid(id)){
+    return res.status(404).send();
+  }
+
+  Todo.findByIdAndRemove(id).then((todo)=>{
+    if(!todo){
+      return res.status(404).send();
+    }
+    return res.status(200).send(todo);
+  },(error)=>{
+    res.status(400).send();
+  })
+
+});
+
 app.get('/todos',(req,res)=>{
 //Getting the the value passed as a query eg : /todos?name=prathamesh
 //  reqQuery = req.query
